@@ -25,10 +25,9 @@ struct ContentView: View {
             }
             
           }
-          .foregroundColor(shape.color)
-          .frame(width: shape.size.width, height: shape.size.height)
-          .position(shape.postion)
-
+          .foregroundColor(shape.color.swiftColor)
+          .frame(width: CGFloat(shape.size.height), height: CGFloat(shape.size.height))
+          .position(shape.postion.cgPosition)
         }
       }
     }
@@ -42,10 +41,7 @@ struct ContentView_Previews: PreviewProvider {
         Store(
           initialState: AppState(
             document: .init(shapes: [
-              SenoraShape.init(
-                size: CGSize(width: 100, height: 50),
-                postion: CGPoint(x: 100, y: 100),
-                color: .red, type: .rectangle)
+              SenoraShape.init(position: SenoraShape.SenoraPosition(x: 100, y: 100))
             ]
             )
           ),
