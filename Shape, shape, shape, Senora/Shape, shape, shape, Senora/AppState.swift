@@ -11,6 +11,7 @@ import SwiftUI
 
 struct SenoraDocument: Equatable {
   var shapes: [SenoraShape]
+  var selectedShape: SenoraShape? = nil
 }
 
 struct SenoraShape: Equatable, Identifiable {
@@ -22,9 +23,10 @@ struct SenoraShape: Equatable, Identifiable {
 
   let id = UUID()
   let size: SenoraSize
-  let postion: SenoraPosition
+  var position: SenoraPosition
   let color: SenoraColor
   let type: ShapeType
+  let isSelected: Bool = false
 
   struct SenoraSize: Equatable {
     let height: Double
@@ -35,13 +37,13 @@ struct SenoraShape: Equatable, Identifiable {
       width: Double = .random(in: 20..<300)
     ) {
       self.height = height
-      self.width = height
+      self.width = width
     }
   }
 
   struct SenoraPosition: Equatable {
-    let x: Double
-    let y: Double
+    var x: Double
+    var y: Double
 
     var cgPosition: CGPoint {
       return CGPoint(x: self.x, y: self.y)
@@ -83,10 +85,16 @@ extension SenoraShape {
     color: SenoraShape.SenoraColor = .init(),
     type: ShapeType = ShapeType.allCases.randomElement()!
   ) {
-    self.postion = SenoraPosition(x: Double(position.x), y: Double(position.y))
+    self.position = SenoraPosition(x: Double(position.x), y: Double(position.y))
     self.size = size
     self.color = color
     self.type = type
+  }
+}
+
+extension SenoraShape {
+  mutating func setPosition(position: SenoraPosition) {
+    self.position = position
   }
 }
 
@@ -121,11 +129,28 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, e
   case .didChangeSize(_):
     return .none
 
-  case .didDrag(_):
+  case .didDrag(let position):
+    guard
+      var selectedShape = state.document.selectedShape,
+      let index = state.document.shapes.firstIndex(of: selectedShape)
+    else {
+      return .none
+    }
+    selectedShape.position.x = Double(position.x)
+    selectedShape.position.y = Double(position.y)
+    state.document.shapes[index] = selectedShape
+    state.document.selectedShape = selectedShape
+
+    // state.document.shapes
+    //     .first(where: { $0.id == id })?
+    //     .setPosition(position: position)
+
     return .none
 
-  case .didSelect(_):
+  case .didSelect(let leshape):
+    state.document.selectedShape = leshape
     return .none
 
   }
-}.debug()
+}
+.debug()
