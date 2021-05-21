@@ -12,24 +12,35 @@ struct ContentView: View {
   let store: Store<AppState, AppAction>
 
   var body: some View {
-    ZStack {
-      WithViewStore(self.store) { viewStore in
-        ForEach(viewStore.document.shapes) { shape in
-          Group {
-            
-            switch shape.type {
-            case .oval:
-              Circle()
-            case .rectangle:
-              Rectangle()
+    WithViewStore(self.store) { viewStore in
+      Rectangle()
+        .frame(minWidth: 500, minHeight: 300)
+        .gesture(
+          DragGesture(minimumDistance: 0, coordinateSpace: .local)
+            .onEnded { state in
+              viewStore.send(.createShapeAt(state.startLocation))
             }
-            
+        )
+        .overlay(
+          ZStack {
+            ForEach(viewStore.document.shapes) { shape in
+              Group {
+
+                switch shape.type {
+                case .oval:
+                  Circle()
+                case .rectangle:
+                  Rectangle()
+                }
+
+              }
+              .foregroundColor(shape.color.swiftColor)
+              .frame(width: CGFloat(shape.size.height), height: CGFloat(shape.size.height))
+              .position(shape.postion.cgPosition)
+            }
           }
-          .foregroundColor(shape.color.swiftColor)
-          .frame(width: CGFloat(shape.size.height), height: CGFloat(shape.size.height))
-          .position(shape.postion.cgPosition)
-        }
-      }
+        )
+
     }
   }
 }
@@ -41,7 +52,7 @@ struct ContentView_Previews: PreviewProvider {
         Store(
           initialState: AppState(
             document: .init(shapes: [
-              SenoraShape.init(position: SenoraShape.SenoraPosition(x: 100, y: 100))
+              SenoraShape.init(position: CGPoint(x: 100, y: 100))
             ]
             )
           ),

@@ -128,4 +128,4 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, e
     return .none
 
   }
-}
+}.debug()
