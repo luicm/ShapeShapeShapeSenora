@@ -10,22 +10,84 @@ import Foundation
 import SwiftUI
 
 struct SenoraDocument: Equatable {
-  let shapes: [SenoraShape]
-
+  var shapes: [SenoraShape]
 }
 
 struct SenoraShape: Equatable, Identifiable {
-  enum ShapeType {
+
+  enum ShapeType: CaseIterable {
     case oval
     case rectangle
   }
 
   let id = UUID()
-  let size: CGSize
-  let postion: CGPoint
-  let color: Color
+  let size: SenoraSize
+  let postion: SenoraPosition
+  let color: SenoraColor
   let type: ShapeType
 
+  struct SenoraSize: Equatable {
+    let height: Double
+    let width: Double
+
+    init(
+      height: Double = .random(in: 20..<300),
+      width: Double = .random(in: 20..<300)
+    ) {
+      self.height = height
+      self.width = height
+    }
+  }
+
+  struct SenoraPosition: Equatable {
+    let x: Double
+    let y: Double
+
+    var cgPosition: CGPoint {
+      return CGPoint(x: self.x, y: self.y)
+    }
+  }
+
+  struct SenoraColor: Equatable {
+    let hue: Double
+    let saturation: Double
+    let brightness: Double
+    let opacity: Double
+
+    var swiftColor: Color {
+      return Color(
+        hue: self.hue,
+        saturation: self.saturation,
+        brightness: self.brightness,
+        opacity: self.opacity)
+    }
+
+    init(
+      hue: Double = .random(in: 0..<1),
+      saturation: Double = 0.85,
+      brightness: Double = 1,
+      opacity: Double = 1
+    ) {
+      self.hue = hue
+      self.saturation = saturation
+      self.brightness = brightness
+      self.opacity = opacity
+    }
+  }
+}
+
+extension SenoraShape {
+  init(
+    position: CGPoint,
+    size: SenoraShape.SenoraSize = .init(),
+    color: SenoraShape.SenoraColor = .init(),
+    type: ShapeType = ShapeType.allCases.randomElement()!
+  ) {
+    self.postion = SenoraPosition(x: Double(position.x), y: Double(position.y))
+    self.size = size
+    self.color = color
+    self.type = type
+  }
 }
 
 struct AppState: Equatable {
@@ -33,9 +95,10 @@ struct AppState: Equatable {
 }
 
 enum AppAction: Equatable {
-  case didChangeColor(Color)
-  case didChangeSize(CGSize)
-  case didDrag(CGPoint)
+  case createShapeAt(CGPoint)
+  case didChangeColor(SenoraShape.SenoraColor)
+  case didChangeSize(SenoraShape.SenoraSize)
+  case didDrag(SenoraShape.SenoraPosition)
   case didSelect(SenoraShape)
 }
 
