@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF90CDC526579A9E00A2A2AC /* Shape__shape__shape__SenoraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF90CDC426579A9E00A2A2AC /* Shape__shape__shape__SenoraApp.swift */; };
+		FF90CDC726579A9E00A2A2AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF90CDC626579A9E00A2A2AC /* ContentView.swift */; };
+		FF90CDC926579A9F00A2A2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF90CDC826579A9F00A2A2AC /* Assets.xcassets */; };
+		FF90CDCC26579A9F00A2A2AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF90CDCB26579A9F00A2A2AC /* Preview Assets.xcassets */; };
+		FF90CDD826579A9F00A2A2AC /* Shape__shape__shape__SenoraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF90CDD726579A9F00A2A2AC /* Shape__shape__shape__SenoraTests.swift */; };
+		FF90CDE326579A9F00A2A2AC /* Shape__shape__shape__SenoraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF90CDE226579A9F00A2A2AC /* Shape__shape__shape__SenoraUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF90CDD426579A9F00A2A2AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF90CDB926579A9E00A2A2AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF90CDC026579A9E00A2A2AC;
+			remoteInfo = "Shape, shape, shape, Senora";
+		};
+		FF90CDDF26579A9F00A2A2AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF90CDB926579A9E00A2A2AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF90CDC026579A9E00A2A2AC;
+			remoteInfo = "Shape, shape, shape, Senora";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FF90CDC126579A9E00A2A2AC /* Shape, shape, shape, Senora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shape, shape, shape, Senora.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF90CDC426579A9E00A2A2AC /* Shape__shape__shape__SenoraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape__shape__shape__SenoraApp.swift; sourceTree = "<group>"; };
+		FF90CDC626579A9E00A2A2AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF90CDC826579A9F00A2A2AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF90CDCB26579A9F00A2A2AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FF90CDCD26579A9F00A2A2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF90CDCE26579A9F00A2A2AC /* Shape__shape__shape__Senora.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shape__shape__shape__Senora.entitlements; sourceTree = "<group>"; };
+		FF90CDD326579A9F00A2A2AC /* Shape, shape, shape, SenoraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shape, shape, shape, SenoraTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF90CDD726579A9F00A2A2AC /* Shape__shape__shape__SenoraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape__shape__shape__SenoraTests.swift; sourceTree = "<group>"; };
+		FF90CDD926579A9F00A2A2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF90CDDE26579A9F00A2A2AC /* Shape, shape, shape, SenoraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shape, shape, shape, SenoraUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF90CDE226579A9F00A2A2AC /* Shape__shape__shape__SenoraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape__shape__shape__SenoraUITests.swift; sourceTree = "<group>"; };
+		FF90CDE426579A9F00A2A2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF90CDBE26579A9E00A2A2AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF90CDD026579A9F00A2A2AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF90CDDB26579A9F00A2A2AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF90CDB826579A9E00A2A2AC = {
+			isa = PBXGroup;
+			children = (
+				FF90CDC326579A9E00A2A2AC /* Shape, shape, shape, Senora */,
+				FF90CDD626579A9F00A2A2AC /* Shape, shape, shape, SenoraTests */,
+				FF90CDE126579A9F00A2A2AC /* Shape, shape, shape, SenoraUITests */,
+				FF90CDC226579A9E00A2A2AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF90CDC226579A9E00A2A2AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF90CDC126579A9E00A2A2AC /* Shape, shape, shape, Senora.app */,
+				FF90CDD326579A9F00A2A2AC /* Shape, shape, shape, SenoraTests.xctest */,
+				FF90CDDE26579A9F00A2A2AC /* Shape, shape, shape, SenoraUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF90CDC326579A9E00A2A2AC /* Shape, shape, shape, Senora */ = {
+			isa = PBXGroup;
+			children = (
+				FF90CDC426579A9E00A2A2AC /* Shape__shape__shape__SenoraApp.swift */,
+				FF90CDC626579A9E00A2A2AC /* ContentView.swift */,
+				FF90CDC826579A9F00A2A2AC /* Assets.xcassets */,
+				FF90CDCD26579A9F00A2A2AC /* Info.plist */,
+				FF90CDCE26579A9F00A2A2AC /* Shape__shape__shape__Senora.entitlements */,
+				FF90CDCA26579A9F00A2A2AC /* Preview Content */,
+			);
+			path = "Shape, shape, shape, Senora";
+			sourceTree = "<group>";
+		};
+		FF90CDCA26579A9F00A2A2AC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FF90CDCB26579A9F00A2A2AC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FF90CDD626579A9F00A2A2AC /* Shape, shape, shape, SenoraTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF90CDD726579A9F00A2A2AC /* Shape__shape__shape__SenoraTests.swift */,
+				FF90CDD926579A9F00A2A2AC /* Info.plist */,
+			);
+			path = "Shape, shape, shape, SenoraTests";
+			sourceTree = "<group>";
+		};
+		FF90CDE126579A9F00A2A2AC /* Shape, shape, shape, SenoraUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FF90CDE226579A9F00A2A2AC /* Shape__shape__shape__SenoraUITests.swift */,
+				FF90CDE426579A9F00A2A2AC /* Info.plist */,
+			);
+			path = "Shape, shape, shape, SenoraUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF90CDC026579A9E00A2A2AC /* Shape, shape, shape, Senora */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF90CDE726579A9F00A2A2AC /* Build configuration list for PBXNativeTarget "Shape, shape, shape, Senora" */;
+			buildPhases = (
+				FF90CDBD26579A9E00A2A2AC /* Sources */,
+				FF90CDBE26579A9E00A2A2AC /* Frameworks */,
+				FF90CDBF26579A9E00A2A2AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Shape, shape, shape, Senora";
+			productName = "Shape, shape, shape, Senora";
+			productReference = FF90CDC126579A9E00A2A2AC /* Shape, shape, shape, Senora.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF90CDD226579A9F00A2A2AC /* Shape, shape, shape, SenoraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF90CDEA26579A9F00A2A2AC /* Build configuration list for PBXNativeTarget "Shape, shape, shape, SenoraTests" */;
+			buildPhases = (
+				FF90CDCF26579A9F00A2A2AC /* Sources */,
+				FF90CDD026579A9F00A2A2AC /* Frameworks */,
+				FF90CDD126579A9F00A2A2AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF90CDD526579A9F00A2A2AC /* PBXTargetDependency */,
+			);
+			name = "Shape, shape, shape, SenoraTests";
+			productName = "Shape, shape, shape, SenoraTests";
+			productReference = FF90CDD326579A9F00A2A2AC /* Shape, shape, shape, SenoraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FF90CDDD26579A9F00A2A2AC /* Shape, shape, shape, SenoraUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF90CDED26579A9F00A2A2AC /* Build configuration list for PBXNativeTarget "Shape, shape, shape, SenoraUITests" */;
+			buildPhases = (
+				FF90CDDA26579A9F00A2A2AC /* Sources */,
+				FF90CDDB26579A9F00A2A2AC /* Frameworks */,
+				FF90CDDC26579A9F00A2A2AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF90CDE026579A9F00A2A2AC /* PBXTargetDependency */,
+			);
+			name = "Shape, shape, shape, SenoraUITests";
+			productName = "Shape, shape, shape, SenoraUITests";
+			productReference = FF90CDDE26579A9F00A2A2AC /* Shape, shape, shape, SenoraUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF90CDB926579A9E00A2A2AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					FF90CDC026579A9E00A2A2AC = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					FF90CDD226579A9F00A2A2AC = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = FF90CDC026579A9E00A2A2AC;
+					};
+					FF90CDDD26579A9F00A2A2AC = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = FF90CDC026579A9E00A2A2AC;
+					};
+				};
+			};
+			buildConfigurationList = FF90CDBC26579A9E00A2A2AC /* Build configuration list for PBXProject "Shape, shape, shape, Senora" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF90CDB826579A9E00A2A2AC;
+			productRefGroup = FF90CDC226579A9E00A2A2AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF90CDC026579A9E00A2A2AC /* Shape, shape, shape, Senora */,
+				FF90CDD226579A9F00A2A2AC /* Shape, shape, shape, SenoraTests */,
+				FF90CDDD26579A9F00A2A2AC /* Shape, shape, shape, SenoraUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF90CDBF26579A9E00A2A2AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF90CDCC26579A9F00A2A2AC /* Preview Assets.xcassets in Resources */,
+				FF90CDC926579A9F00A2A2AC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF90CDD126579A9F00A2A2AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF90CDDC26579A9F00A2A2AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF90CDBD26579A9E00A2A2AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF90CDC726579A9E00A2A2AC /* ContentView.swift in Sources */,
+				FF90CDC526579A9E00A2A2AC /* Shape__shape__shape__SenoraApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF90CDCF26579A9F00A2A2AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF90CDD826579A9F00A2A2AC /* Shape__shape__shape__SenoraTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF90CDDA26579A9F00A2A2AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF90CDE326579A9F00A2A2AC /* Shape__shape__shape__SenoraUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF90CDD526579A9F00A2A2AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF90CDC026579A9E00A2A2AC /* Shape, shape, shape, Senora */;
+			targetProxy = FF90CDD426579A9F00A2A2AC /* PBXContainerItemProxy */;
+		};
+		FF90CDE026579A9F00A2A2AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF90CDC026579A9E00A2A2AC /* Shape, shape, shape, Senora */;
+			targetProxy = FF90CDDF26579A9F00A2A2AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FF90CDE526579A9F00A2A2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF90CDE626579A9F00A2A2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		FF90CDE826579A9F00A2A2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Shape, shape, shape, Senora/Shape__shape__shape__Senora.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Shape, shape, shape, Senora/Preview Content\"";
+				DEVELOPMENT_TEAM = AYS7GALUJN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Shape, shape, shape, Senora/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "luisa.cruz.Shape--shape--shape--Senora";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FF90CDE926579A9F00A2A2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Shape, shape, shape, Senora/Shape__shape__shape__Senora.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Shape, shape, shape, Senora/Preview Content\"";
+				DEVELOPMENT_TEAM = AYS7GALUJN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Shape, shape, shape, Senora/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "luisa.cruz.Shape--shape--shape--Senora";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		FF90CDEB26579A9F00A2A2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AYS7GALUJN;
+				INFOPLIST_FILE = "Shape, shape, shape, SenoraTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "luisa.cruz.Shape--shape--shape--SenoraTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shape, shape, shape, Senora.app/Contents/MacOS/Shape, shape, shape, Senora";
+			};
+			name = Debug;
+		};
+		FF90CDEC26579A9F00A2A2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AYS7GALUJN;
+				INFOPLIST_FILE = "Shape, shape, shape, SenoraTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "luisa.cruz.Shape--shape--shape--SenoraTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shape, shape, shape, Senora.app/Contents/MacOS/Shape, shape, shape, Senora";
+			};
+			name = Release;
+		};
+		FF90CDEE26579A9F00A2A2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AYS7GALUJN;
+				INFOPLIST_FILE = "Shape, shape, shape, SenoraUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "luisa.cruz.Shape--shape--shape--SenoraUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Shape, shape, shape, Senora";
+			};
+			name = Debug;
+		};
+		FF90CDEF26579A9F00A2A2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AYS7GALUJN;
+				INFOPLIST_FILE = "Shape, shape, shape, SenoraUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "luisa.cruz.Shape--shape--shape--SenoraUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Shape, shape, shape, Senora";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF90CDBC26579A9E00A2A2AC /* Build configuration list for PBXProject "Shape, shape, shape, Senora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF90CDE526579A9F00A2A2AC /* Debug */,
+				FF90CDE626579A9F00A2A2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF90CDE726579A9F00A2A2AC /* Build configuration list for PBXNativeTarget "Shape, shape, shape, Senora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF90CDE826579A9F00A2A2AC /* Debug */,
+				FF90CDE926579A9F00A2A2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF90CDEA26579A9F00A2A2AC /* Build configuration list for PBXNativeTarget "Shape, shape, shape, SenoraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF90CDEB26579A9F00A2A2AC /* Debug */,
+				FF90CDEC26579A9F00A2A2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF90CDED26579A9F00A2A2AC /* Build configuration list for PBXNativeTarget "Shape, shape, shape, SenoraUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF90CDEE26579A9F00A2A2AC /* Debug */,
+				FF90CDEF26579A9F00A2A2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF90CDB926579A9E00A2A2AC /* Project object */;
+}
