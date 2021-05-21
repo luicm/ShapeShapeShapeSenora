@@ -109,6 +109,12 @@ struct AppEnvironment {
 let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
 
   switch action {
+  case .createShapeAt(let point):
+    let newShape = SenoraShape(position: point)
+    state.document.shapes.append(newShape)
+
+    return .none
+
   case .didChangeColor(_):
     return .none
 
