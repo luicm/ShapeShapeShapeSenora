@@ -10,38 +10,78 @@ import SwiftUI
 
 struct ContentView: View {
   let store: Store<AppState, AppAction>
+  // @State private var text: String = "HOLA"
 
   var body: some View {
     WithViewStore(self.store, removeDuplicates: ==) { viewStore in
-      Rectangle()
-        .frame(minWidth: 500, minHeight: 300)
-        .gesture(
-          DragGesture(minimumDistance: 0, coordinateSpace: .local)
-            .onEnded { state in
-                viewStore.send(.createShapeAt(state.startLocation), animation: .easeInOut(duration: 0.2))
-            }
-        )
-        .overlay(
-          ZStack {
-            ForEach(viewStore.document.shapes) { shape in
-              Group {
-                switch shape.type {
-                case .oval:
-                  Circle()
+      HSplitView {
+        CanvasView(store: store)
+        if let selecteShape = viewStore.document.selectedShape {
+          VStack {
+            TextField(
+              "X:",
+              value: viewStore.binding(
+                get: \.document.selectedShape?.position.x,
+                send: { AppAction.didDrag(.init(x: $0 ?? 0, y: selecteShape.position.y)) }
+              ),
+              formatter: NumberFormatter()
+            )
 
-                case .rectangle:
-                  Rectangle()
+            TextField(
+              "Y:",
+              value: viewStore.binding(
+                get: \.document.selectedShape?.position.y,
+                send: { AppAction.didDrag(.init(x: selecteShape.position.x, y: $0 ?? 0)) }
+              ),
+              formatter: NumberFormatter()
+            )
+
+            TextField(
+              "Width:",
+              value: viewStore.binding(
+                get: \.document.selectedShape?.size.width,
+                send: {
+                  AppAction.didChangeSize(.init(height: selecteShape.size.height, width: $0 ?? 0))
                 }
-              }
-              .foregroundColor(shape.color.swiftColor)
-              .frame(width: CGFloat(shape.size.width), height: CGFloat(shape.size.height))
-              .overlay(Text("x: \(shape.position.x) y: \(shape.position.y)").font(.caption))
-              .draggableSenoraShape(shape: shape, viewStore: viewStore)
-              .position(x: CGFloat(shape.position.x), y: CGFloat(shape.position.y))
-              // .offset(x: CGFloat(shape.position.x), y: CGFloat(shape.position.y))
-            }
+              ),
+              formatter: NumberFormatter()
+            )
+
+            TextField(
+              "Height:",
+              value: viewStore.binding(
+                get: \.document.selectedShape?.size.height,
+                send: {
+                  AppAction.didChangeSize(.init(height: $0 ?? 0, width: selecteShape.size.width))
+                }
+              ),
+              formatter: NumberFormatter()
+            )
+
+            ColorPicker(
+              "Color",
+              selection: viewStore.binding(
+                get: \.document.selectedShape!.color,
+                send: { AppAction.didChangeColor($0) }
+              ),
+              supportsOpacity: true
+            )
+            .frame(maxWidth: .infinity)
+            .frame(height: 30)
+
+            Spacer()
+
           }
-        )
+          .padding()
+
+        }
+      }
+      // .onChange(
+      //   of: text,
+      //   perform: { value in
+      //     print(value)
+      //   }
+      // )
     }
   }
 }
@@ -101,5 +141,44 @@ extension View {
   {
     return modifier(DraggableSenoraShapeView(shape: shape, viewStore: viewStore))
     // return modifier(DraggableSenoraShapeView(shape: shape, store: store))
+  }
+}
+
+struct CanvasView: View {
+
+  let store: Store<AppState, AppAction>
+
+  var body: some View {
+    WithViewStore(self.store, removeDuplicates: ==) { viewStore in
+      Rectangle()
+        .frame(minWidth: 500, minHeight: 300)
+        .gesture(
+          DragGesture(minimumDistance: 0, coordinateSpace: .local)
+            .onEnded { state in
+              viewStore.send(
+                .createShapeAt(state.startLocation), animation: .easeInOut(duration: 0.2))
+            }
+        )
+        .overlay(
+          ZStack {
+            ForEach(viewStore.document.shapes) { shape in
+              Group {
+                switch shape.type {
+                case .oval:
+                  Ellipse()
+
+                case .rectangle:
+                  Rectangle()
+                }
+              }
+              .foregroundColor(shape.color)
+              .frame(width: CGFloat(shape.size.width), height: CGFloat(shape.size.height))
+              .overlay(Text("x: \(shape.position.x) y: \(shape.position.y)").font(.caption))
+              .draggableSenoraShape(shape: shape, viewStore: viewStore)
+              .position(x: CGFloat(shape.position.x), y: CGFloat(shape.position.y))
+            }
+          }
+        )
+    }
   }
 }

@@ -15,6 +15,7 @@
 		FF90CDE326579A9F00A2A2AC /* Shape__shape__shape__SenoraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF90CDE226579A9F00A2A2AC /* Shape__shape__shape__SenoraUITests.swift */; };
 		FF90CDF226579B4300A2A2AC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = FF90CDF126579B4300A2A2AC /* ComposableArchitecture */; };
 		FF90CDF426579D3100A2A2AC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF90CDF326579D3100A2A2AC /* AppState.swift */; };
+		FF984DE6265AE576001E4530 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF984DE5265AE576001E4530 /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FF90CDE226579A9F00A2A2AC /* Shape__shape__shape__SenoraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape__shape__shape__SenoraUITests.swift; sourceTree = "<group>"; };
 		FF90CDE426579A9F00A2A2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF90CDF326579D3100A2A2AC /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FF984DE5265AE576001E4530 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		FF90CDC326579A9E00A2A2AC /* Shape, shape, shape, Senora */ = {
 			isa = PBXGroup;
 			children = (
+				FF984DE5265AE576001E4530 /* Color+Extension.swift */,
 				FF90CDC426579A9E00A2A2AC /* Shape__shape__shape__SenoraApp.swift */,
 				FF90CDC626579A9E00A2A2AC /* ContentView.swift */,
 				FF90CDC826579A9F00A2A2AC /* Assets.xcassets */,
@@ -275,6 +278,7 @@
 				FF90CDF426579D3100A2A2AC /* AppState.swift in Sources */,
 				FF90CDC726579A9E00A2A2AC /* ContentView.swift in Sources */,
 				FF90CDC526579A9E00A2A2AC /* Shape__shape__shape__SenoraApp.swift in Sources */,
+				FF984DE6265AE576001E4530 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

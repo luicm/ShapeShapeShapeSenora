@@ -22,15 +22,15 @@ struct SenoraShape: Equatable, Identifiable {
   }
 
   let id = UUID()
-  let size: SenoraSize
+  var size: SenoraSize
   var position: SenoraPosition
-  let color: SenoraColor
+  var color: Color
   let type: ShapeType
-  let isSelected: Bool = false
+  var isSelected: Bool = false
 
   struct SenoraSize: Equatable {
-    let height: Double
-    let width: Double
+    var height: Double
+    var width: Double
 
     init(
       height: Double = .random(in: 20..<300),
@@ -48,8 +48,17 @@ struct SenoraShape: Equatable, Identifiable {
     var cgPosition: CGPoint {
       return CGPoint(x: self.x, y: self.y)
     }
+
+    var xStringValue: String {
+      return "\(x)"
+    }
+
+    var yStringValue: String {
+      return "\(y)"
+    }
   }
 
+/*
   struct SenoraColor: Equatable {
     let hue: Double
     let saturation: Double
@@ -75,14 +84,14 @@ struct SenoraShape: Equatable, Identifiable {
       self.brightness = brightness
       self.opacity = opacity
     }
-  }
+  }*/
 }
 
 extension SenoraShape {
   init(
     position: CGPoint,
     size: SenoraShape.SenoraSize = .init(),
-    color: SenoraShape.SenoraColor = .init(),
+    color: Color = Color.random,
     type: ShapeType = ShapeType.allCases.randomElement()!
   ) {
     self.position = SenoraPosition(x: Double(position.x), y: Double(position.y))
@@ -90,6 +99,7 @@ extension SenoraShape {
     self.color = color
     self.type = type
   }
+    
 }
 
 extension SenoraShape {
@@ -104,7 +114,7 @@ struct AppState: Equatable {
 
 enum AppAction: Equatable {
   case createShapeAt(CGPoint)
-  case didChangeColor(SenoraShape.SenoraColor)
+  case didChangeColor(Color)
   case didChangeSize(SenoraShape.SenoraSize)
   case didDrag(SenoraShape.SenoraPosition)
   case didSelect(SenoraShape)
@@ -123,10 +133,31 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, e
 
     return .none
 
-  case .didChangeColor(_):
+  case .didChangeColor(let color):
+    guard
+      var selectedShape = state.document.selectedShape,
+      let index = state.document.shapes.firstIndex(of: selectedShape)
+    else {
+      return .none
+    }
+    selectedShape.color = color
+    state.document.shapes[index] = selectedShape
+    state.document.selectedShape = selectedShape
+    
     return .none
 
-  case .didChangeSize(_):
+  case .didChangeSize(let size):
+    guard
+      var selectedShape = state.document.selectedShape,
+      let index = state.document.shapes.firstIndex(of: selectedShape)
+    else {
+      return .none
+    }
+    selectedShape.size.width = size.width
+    selectedShape.size.height = size.height
+    state.document.shapes[index] = selectedShape
+    state.document.selectedShape = selectedShape
+    
     return .none
 
   case .didDrag(let position):
