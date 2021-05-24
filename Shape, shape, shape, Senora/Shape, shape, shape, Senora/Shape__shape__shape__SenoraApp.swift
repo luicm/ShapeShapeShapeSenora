@@ -11,14 +11,20 @@ import SwiftUI
 @main
 struct Shape__shape__shape__SenoraApp: App {
   var body: some Scene {
-    WindowGroup {
+    DocumentGroup(newDocument: SenoraDocument()) { configuration in
       ContentView(
         store: Store(
           initialState: AppState(
-            document: .init(shapes: [])
+            document: configuration.document
           ),
           reducer: appReducer,
-          environment: AppEnvironment(fileClient: .live, mainQueue: .main)))
+          environment: AppEnvironment(
+            fileClient: .live,
+            mainQueue: .main
+          )
+        ),
+        document: configuration.$document
+      )
     }
   }
 }

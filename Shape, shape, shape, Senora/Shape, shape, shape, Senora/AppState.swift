@@ -11,13 +11,19 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct SenoraDocument: Equatable {
-  var shapes: [SenoraShape]
+  var shapes: [SenoraShape] = []
   var selectedShape: SenoraShape? = nil
+}
+
+extension UTType {
+  static var senora: UTType {
+    UTType(exportedAs: "com.senora.content")
+  }
 }
 
 extension SenoraDocument: FileDocument {
   static var readableContentTypes: [UTType] {
-    return [.plainText]
+    return [.senora]
   }
 
   init(configuration: ReadConfiguration) throws {
