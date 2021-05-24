@@ -40,7 +40,7 @@ extension Color: Codable {
 		var blue: CGFloat = 0
 		var alpha: CGFloat = 0
 //		UIColor(self).getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        NSColor(self).getRed(&red, green: &green, blue: &blue, alpha: nil)
+        NSColor(self).getRed(&red, green: &green, blue: &blue, alpha: &alpha)
 		return Components(red: Double(red),
 								green: Double(green),
 								blue: Double(blue),

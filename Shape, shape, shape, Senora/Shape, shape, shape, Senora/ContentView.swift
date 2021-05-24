@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ContentView: View {
   let store: Store<AppState, AppAction>
@@ -69,6 +70,53 @@ struct ContentView: View {
             .frame(maxWidth: .infinity)
             .frame(height: 30)
 
+            Divider()
+
+            Button("Export document") {
+              viewStore.send(.setExporting(isPresented: true))
+            }
+            .fileExporter(
+              isPresented: viewStore.binding(
+                get: \.isExportingPresented,
+                send: { AppAction.setExporting(isPresented: $0) }
+              ),
+              document: viewStore.document,
+              contentType: .plainText,
+              onCompletion: { _ in }
+            )
+
+            Button("Import File") {
+              viewStore.send(.setImporting(isPresented: true))
+            }
+            .fileImporter(
+              isPresented: viewStore.binding(
+                get: \.isImportingPresented,
+                send: { AppAction.setImporting(isPresented: $0) }
+              ),
+              allowedContentTypes: [.plainText],
+              onCompletion: { result in
+                switch result {
+                case .failure(let error):
+                  print("Error selecting file \(error.localizedDescription)")
+                case .success(let url):
+                  print("selected url = \(url)")
+
+                  do {
+                    if url.startAccessingSecurityScopedResource() {
+                      let decoder = JSONDecoder()
+                      let shapes = try decoder.decode(
+                        [SenoraShape].self, from: Data(contentsOf: url))
+
+                      viewStore.send(.didImporDocument(shapes))
+                    }
+                  } catch let error {
+                    print("Error reading file \(error.localizedDescription)")
+                  }
+                }
+
+              }
+            )
+
             Spacer()
 
           }
@@ -98,7 +146,8 @@ struct ContentView_Previews: PreviewProvider {
             )
           ),
           reducer: appReducer,
-          environment: AppEnvironment(mainQueue: .immediate)))
+          environment: AppEnvironment(
+            fileClient: .live, mainQueue: .immediate)))
   }
 }
 

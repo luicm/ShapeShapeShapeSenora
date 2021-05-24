@@ -8,15 +8,36 @@
 import ComposableArchitecture
 import Foundation
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct SenoraDocument: Equatable {
   var shapes: [SenoraShape]
   var selectedShape: SenoraShape? = nil
 }
 
-struct SenoraShape: Equatable, Identifiable {
+extension SenoraDocument: FileDocument {
+  static var readableContentTypes: [UTType] {
+    return [.plainText]
+  }
 
-  enum ShapeType: CaseIterable {
+  init(configuration: ReadConfiguration) throws {
+    guard let data = configuration.file.regularFileContents else {
+      throw CocoaError(.fileReadCorruptFile)
+    }
+    let decoder = JSONDecoder()
+    self.shapes = try decoder.decode([SenoraShape].self, from: data)
+  }
+
+  func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+    let encoder = JSONEncoder()
+    let data = try encoder.encode(self.shapes)
+    return FileWrapper(regularFileWithContents: data)
+  }
+}
+
+struct SenoraShape: Equatable, Identifiable, Codable {
+
+  enum ShapeType: Int, CaseIterable, Codable {
     case oval
     case rectangle
   }
@@ -28,7 +49,7 @@ struct SenoraShape: Equatable, Identifiable {
   let type: ShapeType
   var isSelected: Bool = false
 
-  struct SenoraSize: Equatable {
+  struct SenoraSize: Equatable, Codable {
     var height: Double
     var width: Double
 
@@ -41,7 +62,7 @@ struct SenoraShape: Equatable, Identifiable {
     }
   }
 
-  struct SenoraPosition: Equatable {
+  struct SenoraPosition: Equatable, Codable {
     var x: Double
     var y: Double
 
@@ -57,34 +78,6 @@ struct SenoraShape: Equatable, Identifiable {
       return "\(y)"
     }
   }
-
-/*
-  struct SenoraColor: Equatable {
-    let hue: Double
-    let saturation: Double
-    let brightness: Double
-    let opacity: Double
-
-    var swiftColor: Color {
-      return Color(
-        hue: self.hue,
-        saturation: self.saturation,
-        brightness: self.brightness,
-        opacity: self.opacity)
-    }
-
-    init(
-      hue: Double = .random(in: 0..<1),
-      saturation: Double = 0.85,
-      brightness: Double = 1,
-      opacity: Double = 1
-    ) {
-      self.hue = hue
-      self.saturation = saturation
-      self.brightness = brightness
-      self.opacity = opacity
-    }
-  }*/
 }
 
 extension SenoraShape {
@@ -99,7 +92,7 @@ extension SenoraShape {
     self.color = color
     self.type = type
   }
-    
+
 }
 
 extension SenoraShape {
@@ -108,8 +101,12 @@ extension SenoraShape {
   }
 }
 
+//MARK: -
+
 struct AppState: Equatable {
   var document: SenoraDocument
+  var isExportingPresented: Bool = false
+  var isImportingPresented: Bool = false
 }
 
 enum AppAction: Equatable {
@@ -118,9 +115,13 @@ enum AppAction: Equatable {
   case didChangeSize(SenoraShape.SenoraSize)
   case didDrag(SenoraShape.SenoraPosition)
   case didSelect(SenoraShape)
+  case didImporDocument([SenoraShape])
+  case setExporting(isPresented: Bool)
+  case setImporting(isPresented: Bool)
 }
 
 struct AppEnvironment {
+  var fileClient: FileClient
   var mainQueue: AnySchedulerOf<DispatchQueue>
 }
 
@@ -143,7 +144,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, e
     selectedShape.color = color
     state.document.shapes[index] = selectedShape
     state.document.selectedShape = selectedShape
-    
+
     return .none
 
   case .didChangeSize(let size):
@@ -157,7 +158,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, e
     selectedShape.size.height = size.height
     state.document.shapes[index] = selectedShape
     state.document.selectedShape = selectedShape
-    
+
     return .none
 
   case .didDrag(let position):
@@ -182,6 +183,42 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment> { state, action, e
     state.document.selectedShape = leshape
     return .none
 
+  case .didImporDocument(let shapes):
+    state.document.shapes = shapes
+    return .none
+
+  case .setExporting(isPresented: let presented):
+    state.isExportingPresented = presented
+    return .none
+
+  case .setImporting(isPresented: let presented):
+    state.isImportingPresented = presented
+    return .none
   }
 }
 .debug()
+
+//MARK: -
+
+struct FileClient {
+  var load: (String) -> Effect<Data, Error>
+  var save: (String, Data) -> Effect<Never, Error>
+}
+
+extension FileClient {
+  static var live: Self {
+    return Self(
+      load: { fileName in
+        .catching {
+          //TODO:
+          Data()
+        }
+      },
+      save: { fileName, data in
+        .fireAndForget {
+          //TODO:
+        }
+      }
+    )
+  }
+}

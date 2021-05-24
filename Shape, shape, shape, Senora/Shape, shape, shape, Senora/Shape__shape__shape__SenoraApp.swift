@@ -18,7 +18,7 @@ struct Shape__shape__shape__SenoraApp: App {
             document: .init(shapes: [])
           ),
           reducer: appReducer,
-          environment: AppEnvironment(mainQueue: .main)))
+          environment: AppEnvironment(fileClient: .live, mainQueue: .main)))
     }
   }
 }

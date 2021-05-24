@@ -102,14 +102,14 @@
 		FF90CDC326579A9E00A2A2AC /* Shape, shape, shape, Senora */ = {
 			isa = PBXGroup;
 			children = (
-				FF984DE5265AE576001E4530 /* Color+Extension.swift */,
-				FF90CDC426579A9E00A2A2AC /* Shape__shape__shape__SenoraApp.swift */,
-				FF90CDC626579A9E00A2A2AC /* ContentView.swift */,
-				FF90CDC826579A9F00A2A2AC /* Assets.xcassets */,
-				FF90CDCD26579A9F00A2A2AC /* Info.plist */,
 				FF90CDCE26579A9F00A2A2AC /* Shape__shape__shape__Senora.entitlements */,
-				FF90CDCA26579A9F00A2A2AC /* Preview Content */,
+				FF90CDCD26579A9F00A2A2AC /* Info.plist */,
 				FF90CDF326579D3100A2A2AC /* AppState.swift */,
+				FF984DE5265AE576001E4530 /* Color+Extension.swift */,
+				FF90CDC626579A9E00A2A2AC /* ContentView.swift */,
+				FF90CDC426579A9E00A2A2AC /* Shape__shape__shape__SenoraApp.swift */,
+				FF90CDC826579A9F00A2A2AC /* Assets.xcassets */,
+				FF90CDCA26579A9F00A2A2AC /* Preview Content */,
 			);
 			path = "Shape, shape, shape, Senora";
 			sourceTree = "<group>";
